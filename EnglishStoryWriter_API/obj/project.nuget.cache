@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "HcU7oZUj4msgSPFNEbac3YJT7DeUR6tXW7DEh0gsmRsKQlQY2f6XJxNXOg6l9PlO80MJBRumqd4jBL7HG+Br2A==",
+  "success": true,
+  "projectFilePath": "C:\\Praca\\C#\\EnglishStoryWriter_API\\EnglishStoryWriter_API\\EnglishStoryWriter_API\\EnglishStoryWriter_API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Apoll\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Apoll\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Apoll\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\Apoll\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Apoll\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\Apoll\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

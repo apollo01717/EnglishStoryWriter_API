@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishStoryWriter_API", "EnglishStoryWriter_API\EnglishStoryWriter_API.csproj", "{4AC7E0A3-24BB-40C1-8C27-28F869E91C3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AC7E0A3-24BB-40C1-8C27-28F869E91C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC7E0A3-24BB-40C1-8C27-28F869E91C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC7E0A3-24BB-40C1-8C27-28F869E91C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC7E0A3-24BB-40C1-8C27-28F869E91C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17565817-A939-47D3-9072-C418BC108F7C}
+	EndGlobalSection
+EndGlobal
