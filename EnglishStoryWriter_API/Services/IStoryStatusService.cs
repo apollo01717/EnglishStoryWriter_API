@@ -9,6 +9,8 @@ namespace EnglishStoryWriter_API.Services
     public interface IStoryStatusService
     {
         public IEnumerable<StoryStatusDTO> GetAll();
+        public StoryStatusDTO GetOne(int id);
+
 
     }
 }

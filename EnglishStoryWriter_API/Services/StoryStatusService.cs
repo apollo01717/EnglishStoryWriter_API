@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Exceptions;
 using EnglishStoryWriter_API.Repositories;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,14 @@ namespace EnglishStoryWriter_API.Services
             return _mapper.Map<List<StoryStatusDTO>>(storyStatusDTOS);
         }
         
-
+        public StoryStatusDTO GetOne(int id)
+        {
+            var storyStatus = _storyStatusRepository.GetOne(id);
+            if(storyStatus is null)
+            {
+                throw new NotFoundException("StoryStatus not found");
+            }
+          return  _mapper.Map<StoryStatusDTO>(_storyStatusRepository.GetOne(id));
+        }
     }
 }

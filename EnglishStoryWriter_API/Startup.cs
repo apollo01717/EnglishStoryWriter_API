@@ -1,4 +1,5 @@
 using EnglishStoryWriter_API.Entities;
+using EnglishStoryWriter_API.Middleware;
 using EnglishStoryWriter_API.Repositories;
 using EnglishStoryWriter_API.Services;
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +37,7 @@ namespace EnglishStoryWriter_API
             services.AddScoped<EnglishDbSeeder>();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddControllers();
+            services.AddScoped<ErrorHandlingMiddleware>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EnglishStoryWriter_API", Version = "v1" });

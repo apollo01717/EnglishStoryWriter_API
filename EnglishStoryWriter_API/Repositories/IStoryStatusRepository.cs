@@ -9,5 +9,7 @@ namespace EnglishStoryWriter_API.Repositories
     public interface IStoryStatusRepository
     {
         public IList<StoryStatus> GetAll();
+        public StoryStatus GetOne(int id);
+
     }
 }

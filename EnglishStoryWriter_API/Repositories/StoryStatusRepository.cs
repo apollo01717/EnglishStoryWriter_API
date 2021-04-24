@@ -17,5 +17,10 @@ namespace EnglishStoryWriter_API.Repositories
         {
             return _englishDbContext.StoryStatus.ToList();
         }
+
+        public StoryStatus GetOne(int id)
+        {
+            return _englishDbContext.StoryStatus.FirstOrDefault(s => s.Id == id);
+        }
     }
 }

@@ -25,5 +25,15 @@ namespace EnglishStoryWriter_API.Controllers
             return Ok(_storyStatusServie.GetAll());
         }
 
+        [HttpGet("/{id}")]
+        public ActionResult<StoryStatusDTO> GetOne([FromRoute] int id)
+        {
+            var storyStatusDTO = _storyStatusServie.GetOne(id);
+            if(storyStatusDTO is null)
+            {
+                return NotFound();
+            }
+            return Ok(storyStatusDTO);
+        }
     }
 }
