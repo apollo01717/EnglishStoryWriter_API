@@ -25,6 +25,13 @@ namespace EnglishStoryWriter_API
                     _dbContext.SaveChanges();
                 }
                 
+                if (!_dbContext.CategoryOfKeyword.Any())
+                {
+                    var categoryOfKeyword = GetCategoryOfKeyword();
+                    _dbContext.AddRange(categoryOfKeyword);
+                    _dbContext.SaveChanges();
+                }
+                
             }
         }
 
@@ -52,5 +59,26 @@ namespace EnglishStoryWriter_API
             };
             return statuses;
         }
-    }
+
+        private IEnumerable<CategoryOfKeyword> GetCategoryOfKeyword()
+        {
+            var categoryOfKeywords = new List<CategoryOfKeyword>()
+            {
+              new CategoryOfKeyword()
+              {
+                Name = "Character"
+
+              },
+              new CategoryOfKeyword()
+              {
+                  Name = "Place"
+              },
+              new CategoryOfKeyword()
+              {
+                  Name = "Circumstance"
+              }
+            };
+            return categoryOfKeywords;
+        }
+    } 
 }

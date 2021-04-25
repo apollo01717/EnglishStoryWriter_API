@@ -17,6 +17,7 @@ namespace EnglishStoryWriter_API.Entities
             _contectionString = configuration.GetConnectionString("EnglishDBConnection");
         }
         public DbSet<StoryStatus> StoryStatus { get; set; }
+        public DbSet<CategoryOfKeyword> CategoryOfKeyword { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
