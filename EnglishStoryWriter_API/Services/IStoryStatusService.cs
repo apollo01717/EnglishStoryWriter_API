@@ -1,4 +1,5 @@
 ﻿using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace EnglishStoryWriter_API.Services
     {
         public IEnumerable<StoryStatusDTO> GetAll();
         public StoryStatusDTO GetOne(int id);
-
-
+        public StoryStatus Create(CreateStoryStatusDTO statusDTO);
     }
 }

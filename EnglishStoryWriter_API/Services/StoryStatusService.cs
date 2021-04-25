@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Entities;
 using EnglishStoryWriter_API.Exceptions;
 using EnglishStoryWriter_API.Repositories;
 using System;
@@ -34,6 +35,13 @@ namespace EnglishStoryWriter_API.Services
                 throw new NotFoundException("StoryStatus not found");
             }
           return  _mapper.Map<StoryStatusDTO>(_storyStatusRepository.GetOne(id));
+        }
+
+        public StoryStatus Create(CreateStoryStatusDTO statusDTO)
+        {
+            var storyStatus = _mapper.Map<StoryStatus>(statusDTO);
+            _storyStatusRepository.Create(storyStatus);
+            return storyStatus;
         }
     }
 }

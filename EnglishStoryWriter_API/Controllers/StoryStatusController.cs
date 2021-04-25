@@ -35,5 +35,12 @@ namespace EnglishStoryWriter_API.Controllers
             }
             return Ok(storyStatusDTO);
         }
+
+        [HttpPost]
+        public ActionResult Create([FromBody] CreateStoryStatusDTO statusDTO)
+        {
+            var storyStatus = _storyStatusServie.Create(statusDTO);
+            return Created($"/api/storystatus/{storyStatus.Id}", null);
+        }
     }
 }

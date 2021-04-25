@@ -22,5 +22,12 @@ namespace EnglishStoryWriter_API.Repositories
         {
             return _englishDbContext.StoryStatus.FirstOrDefault(s => s.Id == id);
         }
+
+        public StoryStatus Create(StoryStatus storyStatus)
+        {
+            _englishDbContext.StoryStatus.Add(storyStatus);
+            _englishDbContext.SaveChanges();
+            return storyStatus;
+        }
     }
 }

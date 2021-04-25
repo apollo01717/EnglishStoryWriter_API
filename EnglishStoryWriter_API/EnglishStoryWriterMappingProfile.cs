@@ -13,6 +13,9 @@ namespace EnglishStoryWriter_API
         public EnglishStoryWriterMappingProfile()
         {
             CreateMap<StoryStatus, StoryStatusDTO>();
+            CreateMap<StoryStatusDTO, StoryStatus>();
+            CreateMap<CreateStoryStatusDTO, StoryStatus>();
+            CreateMap<StoryStatus, CreateStoryStatusDTO>();
         }
     }
 }
