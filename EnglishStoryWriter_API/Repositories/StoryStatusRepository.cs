@@ -1,4 +1,5 @@
-﻿using EnglishStoryWriter_API.Entities;
+﻿using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,18 @@ namespace EnglishStoryWriter_API.Repositories
             _englishDbContext.SaveChanges();
             return storyStatus;
         }
+
+        public void Update(StoryStatus storyStatus,CreateStoryStatusDTO statusDTO)
+        {
+            storyStatus.Name = statusDTO.Name;
+            _englishDbContext.SaveChanges();
+
+        }
+        public void Delete(StoryStatus storyStatus)
+        {
+            _englishDbContext.Remove(storyStatus);
+            _englishDbContext.SaveChanges();
+        }
+
     }
 }

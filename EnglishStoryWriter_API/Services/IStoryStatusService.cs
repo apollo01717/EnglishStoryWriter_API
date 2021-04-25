@@ -12,5 +12,8 @@ namespace EnglishStoryWriter_API.Services
         public IEnumerable<StoryStatusDTO> GetAll();
         public StoryStatusDTO GetOne(int id);
         public StoryStatus Create(CreateStoryStatusDTO statusDTO);
+        public void Update(CreateStoryStatusDTO statusDTO, int id);
+        public void Delete(int id);
+
     }
 }

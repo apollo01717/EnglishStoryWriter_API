@@ -43,5 +43,25 @@ namespace EnglishStoryWriter_API.Services
             _storyStatusRepository.Create(storyStatus);
             return storyStatus;
         }
+
+        public void Update(CreateStoryStatusDTO statusDTO, int id)
+        {
+            var storyStatus = _storyStatusRepository.GetOne(id);
+            if(storyStatus is null)
+            {
+                throw new NotFoundException("Story status not found");
+            }
+            _storyStatusRepository.Update(storyStatus, statusDTO);
+        }
+
+        public void Delete(int id)
+        {
+            var storyStatus = _storyStatusRepository.GetOne(id);
+            if(storyStatus is null)
+            {
+                throw new NotFoundException("Story status not found");
+            }
+            _storyStatusRepository.Delete(storyStatus);
+        }
     }
 }

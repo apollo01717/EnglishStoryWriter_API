@@ -25,14 +25,10 @@ namespace EnglishStoryWriter_API.Controllers
             return Ok(_storyStatusServie.GetAll());
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("{id}")]
         public ActionResult<StoryStatusDTO> GetOne([FromRoute] int id)
         {
             var storyStatusDTO = _storyStatusServie.GetOne(id);
-            if(storyStatusDTO is null)
-            {
-                return NotFound();
-            }
             return Ok(storyStatusDTO);
         }
 
@@ -41,6 +37,20 @@ namespace EnglishStoryWriter_API.Controllers
         {
             var storyStatus = _storyStatusServie.Create(statusDTO);
             return Created($"/api/storystatus/{storyStatus.Id}", null);
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult Update([FromRoute] int id, [FromBody] CreateStoryStatusDTO statusDTO)
+        {
+            _storyStatusServie.Update(statusDTO, id);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete([FromRoute] int id)
+        {
+            _storyStatusServie.Delete(id);
+            return NoContent();
         }
     }
 }
