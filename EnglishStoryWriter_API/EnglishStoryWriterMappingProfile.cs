@@ -16,6 +16,12 @@ namespace EnglishStoryWriter_API
             CreateMap<StoryStatusDTO, StoryStatus>();
             CreateMap<CreateStoryStatusDTO, StoryStatus>();
             CreateMap<StoryStatus, CreateStoryStatusDTO>();
+
+            CreateMap<CategoryOfKeyword, CategoryOfKeywordDTO>();
+            CreateMap<CategoryOfKeywordDTO, CategoryOfKeyword>();
+            CreateMap<CreateCategoryOfKeywordDTO, CategoryOfKeyword>();
+            CreateMap<CategoryOfKeyword,CreateCategoryOfKeywordDTO>();
+
         }
     }
 }

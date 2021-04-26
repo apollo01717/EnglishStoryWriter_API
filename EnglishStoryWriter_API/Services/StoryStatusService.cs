@@ -34,7 +34,7 @@ namespace EnglishStoryWriter_API.Services
             {
                 throw new NotFoundException("StoryStatus not found");
             }
-          return  _mapper.Map<StoryStatusDTO>(_storyStatusRepository.GetOne(id));
+          return  _mapper.Map<StoryStatusDTO>(storyStatus);
         }
 
         public StoryStatus Create(CreateStoryStatusDTO statusDTO)
