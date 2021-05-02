@@ -18,6 +18,7 @@ namespace EnglishStoryWriter_API.Entities
         }
         public DbSet<StoryStatus> StoryStatus { get; set; }
         public DbSet<CategoryOfKeyword> CategoryOfKeyword { get; set; }
+        public DbSet<Criterion> Criterion{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

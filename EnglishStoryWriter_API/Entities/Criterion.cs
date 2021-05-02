@@ -1,13 +1,13 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Entities
 {
-    public class CategoryOfKeyword
+    public class Criterion
     {
-        public int Id { set; get; }
+        public int Id {get; set;}
         public string Name { get; set; }
     }
 }

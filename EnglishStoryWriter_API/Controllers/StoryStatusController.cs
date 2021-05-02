@@ -1,4 +1,5 @@
 ﻿using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Entities;
 using EnglishStoryWriter_API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,7 +21,7 @@ namespace EnglishStoryWriter_API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<StoryStatusDTO> GetAll()
+        public ActionResult<IEnumerable<StoryStatusDTO>> GetAll()
         {
             return Ok(_storyStatusServie.GetAll());
         }
@@ -28,14 +29,14 @@ namespace EnglishStoryWriter_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<StoryStatusDTO> GetOne([FromRoute] int id)
         {
-            var storyStatusDTO = _storyStatusServie.GetOne(id);
+            StoryStatusDTO storyStatusDTO = _storyStatusServie.GetOne(id);
             return Ok(storyStatusDTO);
         }
 
         [HttpPost]
         public ActionResult Create([FromBody] CreateStoryStatusDTO statusDTO)
         {
-            var storyStatus = _storyStatusServie.Create(statusDTO);
+            StoryStatus storyStatus = _storyStatusServie.Create(statusDTO);
             return Created($"/api/storystatus/{storyStatus.Id}", null);
         }
 

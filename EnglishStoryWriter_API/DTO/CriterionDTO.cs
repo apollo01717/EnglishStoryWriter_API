@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.DTO
 {
-    public class CategoryOfKeywordDTO
+    public class CriterionDTO
     {
         public int Id { get; set; }
         [Required]

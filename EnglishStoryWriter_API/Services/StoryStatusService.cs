@@ -23,13 +23,13 @@ namespace EnglishStoryWriter_API.Services
 
         public IEnumerable<StoryStatusDTO> GetAll()
         {
-            var storyStatusDTOS = _storyStatusRepository.GetAll();
-            return _mapper.Map<List<StoryStatusDTO>>(storyStatusDTOS);
+            IList<StoryStatus> storyStatuses = _storyStatusRepository.GetAll();
+            return _mapper.Map<List<StoryStatusDTO>>(storyStatuses);
         }
         
         public StoryStatusDTO GetOne(int id)
         {
-            var storyStatus = _storyStatusRepository.GetOne(id);
+            StoryStatus storyStatus = _storyStatusRepository.GetOne(id);
             if(storyStatus is null)
             {
                 throw new NotFoundException("StoryStatus not found");
@@ -39,14 +39,14 @@ namespace EnglishStoryWriter_API.Services
 
         public StoryStatus Create(CreateStoryStatusDTO statusDTO)
         {
-            var storyStatus = _mapper.Map<StoryStatus>(statusDTO);
+            StoryStatus storyStatus = _mapper.Map<StoryStatus>(statusDTO);
             _storyStatusRepository.Create(storyStatus);
             return storyStatus;
         }
 
         public void Update(CreateStoryStatusDTO statusDTO, int id)
         {
-            var storyStatus = _storyStatusRepository.GetOne(id);
+            StoryStatus storyStatus = _storyStatusRepository.GetOne(id);
             if(storyStatus is null)
             {
                 throw new NotFoundException("Story status not found");
@@ -56,7 +56,7 @@ namespace EnglishStoryWriter_API.Services
 
         public void Delete(int id)
         {
-            var storyStatus = _storyStatusRepository.GetOne(id);
+            StoryStatus storyStatus = _storyStatusRepository.GetOne(id);
             if(storyStatus is null)
             {
                 throw new NotFoundException("Story status not found");

@@ -35,6 +35,9 @@ namespace EnglishStoryWriter_API
 
             services.AddTransient<ICategoryOfKeywordRepository, CategoryOfKeywordRepository>();
             services.AddTransient<ICategoryOfKeywordService, CategoryOfKeywordService>();
+            
+            services.AddTransient<ICriterionRepository, CriterionRepository>();
+            services.AddTransient<ICriterionService, CriterionService>();
 
             services.AddDbContext<EnglishDbContext>();
             services.AddScoped<EnglishDbSeeder>();

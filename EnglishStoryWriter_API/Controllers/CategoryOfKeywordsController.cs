@@ -1,4 +1,5 @@
 ﻿using EnglishStoryWriter_API.DTO;
+using EnglishStoryWriter_API.Entities;
 using EnglishStoryWriter_API.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,7 +19,7 @@ namespace EnglishStoryWriter_API.Controllers
             _categoryOfKeywordService = categoryOfKeywordService;
         }
         [HttpGet]
-        public ActionResult<CategoryOfKeywordDTO> GetAll()
+        public ActionResult<IEnumerable<CategoryOfKeywordDTO>> GetAll()
         {
             var categoryOfKeywords = _categoryOfKeywordService.GetAll();
             return Ok(categoryOfKeywords);
@@ -27,14 +28,14 @@ namespace EnglishStoryWriter_API.Controllers
         [HttpGet("{id}")]
         public ActionResult<CategoryOfKeywordDTO> Get(int id)
         {
-            var categoryOfKeyword = _categoryOfKeywordService.GetOne(id);
+            CategoryOfKeywordDTO categoryOfKeyword = _categoryOfKeywordService.GetOne(id);
             return Ok(categoryOfKeyword);
         }
 
         [HttpPost]
         public ActionResult Create([FromBody] CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO)
         {
-            var categoryOfKeyword = _categoryOfKeywordService.Create(createCategoryOfKeywordDTO);
+            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordService.Create(createCategoryOfKeywordDTO);
             return Created($"/api/categoryofkeyword/{categoryOfKeyword.Id}", null);
         }
 

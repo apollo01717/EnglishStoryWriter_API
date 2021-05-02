@@ -22,13 +22,13 @@ namespace EnglishStoryWriter_API.Services
         }
         public CategoryOfKeyword Create(CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO)
         {
-            var categoryOfKeyword = _mapper.Map<CategoryOfKeyword>(createCategoryOfKeywordDTO);
+            CategoryOfKeyword categoryOfKeyword = _mapper.Map<CategoryOfKeyword>(createCategoryOfKeywordDTO);
             return _categoryOfKeywordRepository.Create(categoryOfKeyword);
         }
 
         public void Delete(int id)
         {
-            var categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
+            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
              
             if (categoryOfKeyword is null)
             {
@@ -39,14 +39,14 @@ namespace EnglishStoryWriter_API.Services
 
         public IEnumerable<CategoryOfKeywordDTO> GetAll()
         {
-            var categoryOfKeywords = _categoryOfKeywordRepository.GetAll();
+            IList<CategoryOfKeyword> categoryOfKeywords = _categoryOfKeywordRepository.GetAll();
             return _mapper.Map<List<CategoryOfKeywordDTO>>(categoryOfKeywords);
 
         }
 
         public CategoryOfKeywordDTO GetOne(int id)
         {
-            var categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
+            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
             if (categoryOfKeyword is null)
             {
                 throw new NotFoundException("CategoryOfKeyword not found");
@@ -56,7 +56,7 @@ namespace EnglishStoryWriter_API.Services
 
         public void Update(CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO, int id)
         {
-            var categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
+            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
             if (categoryOfKeyword is null)
             {
                 throw new NotFoundException("CategoryOfKeyword status not found");

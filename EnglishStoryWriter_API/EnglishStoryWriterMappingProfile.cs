@@ -22,6 +22,11 @@ namespace EnglishStoryWriter_API
             CreateMap<CreateCategoryOfKeywordDTO, CategoryOfKeyword>();
             CreateMap<CategoryOfKeyword,CreateCategoryOfKeywordDTO>();
 
+            CreateMap<Criterion, CriterionDTO>();
+            CreateMap<CriterionDTO, Criterion>();
+            CreateMap<Criterion, CreateCriterionDTO>();
+            CreateMap<CreateCriterionDTO, Criterion>();
+
         }
     }
 }
