@@ -39,6 +39,9 @@ namespace EnglishStoryWriter_API
             services.AddTransient<ICriterionRepository, CriterionRepository>();
             services.AddTransient<ICriterionService, CriterionService>();
 
+            services.AddTransient<ILevelRepository, LevelRepository>();
+            services.AddTransient<ILevelService, LevelService>();
+
             services.AddDbContext<EnglishDbContext>();
             services.AddScoped<EnglishDbSeeder>();
             services.AddAutoMapper(this.GetType().Assembly);

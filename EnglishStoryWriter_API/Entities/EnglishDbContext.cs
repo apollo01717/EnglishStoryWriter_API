@@ -19,11 +19,27 @@ namespace EnglishStoryWriter_API.Entities
         public DbSet<StoryStatus> StoryStatus { get; set; }
         public DbSet<CategoryOfKeyword> CategoryOfKeyword { get; set; }
         public DbSet<Criterion> Criterion{ get; set; }
+        public DbSet<Level> Level { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<StoryStatus>()
                 .Property(s => s.Name)
+                .IsRequired()
+                .HasMaxLength(25);
+
+            modelBuilder.Entity<CategoryOfKeyword>()
+                .Property(c => c.Name)
+                .IsRequired()
+                .HasMaxLength(25);
+            
+            modelBuilder.Entity<Criterion>()
+                .Property(c => c.Name)
+                .IsRequired()
+                .HasMaxLength(25);
+
+            modelBuilder.Entity<Level>()
+                .Property(l => l.Name)
                 .IsRequired()
                 .HasMaxLength(25);
         }

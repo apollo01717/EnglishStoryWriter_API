@@ -30,6 +30,18 @@ namespace EnglishStoryWriter_API
                     var categoryOfKeyword = GetCategoryOfKeyword();
                     _dbContext.AddRange(categoryOfKeyword);
                     _dbContext.SaveChanges();
+                } 
+                if (!_dbContext.Criterion.Any())
+                {
+                    var criterion = GetCriterion();
+                    _dbContext.AddRange(criterion);
+                    _dbContext.SaveChanges();
+                }
+                if (!_dbContext.Level.Any())
+                {
+                    var levels = GetLevels();
+                    _dbContext.AddRange(levels);
+                    _dbContext.SaveChanges();
                 }
                 
             }
@@ -79,6 +91,62 @@ namespace EnglishStoryWriter_API
               }
             };
             return categoryOfKeywords;
+        }
+        private IEnumerable<Criterion> GetCriterion()
+        {
+            var criterion = new List<Criterion>()
+            {
+              new Criterion()
+              {
+                Name = "Vocabulary"
+
+              },
+              new Criterion()
+              {
+                  Name = "Use of keywords"
+              },
+              new Criterion()
+              {
+                  Name = "Grammar"
+              },
+              new Criterion()
+              {
+                  Name = "Interesting of story"
+              }
+            };
+            return criterion;
+        }
+        private IEnumerable<Level> GetLevels()
+        {
+            var levels = new List<Level>()
+            {
+              new Level()
+              {
+                Name = "A1"
+
+              },
+              new Level()
+              {
+                  Name = "A2"
+              },
+              new Level()
+              {
+                  Name = "B1"
+              },
+              new Level()
+              {
+                  Name = "B2"
+              },
+              new Level()
+              {
+                  Name = "C1"
+              },
+              new Level()
+              {
+                  Name = "C2"
+              }
+            };
+            return levels;
         }
     } 
 }

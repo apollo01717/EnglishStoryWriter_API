@@ -27,6 +27,11 @@ namespace EnglishStoryWriter_API
             CreateMap<Criterion, CreateCriterionDTO>();
             CreateMap<CreateCriterionDTO, Criterion>();
 
+            CreateMap<Level, LevelDTO>();
+            CreateMap<LevelDTO, Level>();
+            CreateMap<CreateLevelDTO, Level>();
+            CreateMap<Level, CreateLevelDTO>();
+
         }
     }
 }

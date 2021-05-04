@@ -28,12 +28,7 @@ namespace EnglishStoryWriter_API.Services
 
         public void Delete(int id)
         {
-            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
-             
-            if (categoryOfKeyword is null)
-            {
-                throw new NotFoundException("Story status not found");
-            }
+            CategoryOfKeyword categoryOfKeyword = GetCategoryOfKeywordById(id);
             _categoryOfKeywordRepository.Delete(categoryOfKeyword);
         }
 
@@ -41,27 +36,29 @@ namespace EnglishStoryWriter_API.Services
         {
             IList<CategoryOfKeyword> categoryOfKeywords = _categoryOfKeywordRepository.GetAll();
             return _mapper.Map<List<CategoryOfKeywordDTO>>(categoryOfKeywords);
-
         }
 
         public CategoryOfKeywordDTO GetOne(int id)
         {
-            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
-            if (categoryOfKeyword is null)
-            {
-                throw new NotFoundException("CategoryOfKeyword not found");
-            }
+            CategoryOfKeyword categoryOfKeyword = GetCategoryOfKeywordById(id);
             return _mapper.Map<CategoryOfKeywordDTO>(categoryOfKeyword);
         }
 
         public void Update(CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO, int id)
+        {
+            CategoryOfKeyword categoryOfKeyword = GetCategoryOfKeywordById(id);
+            _categoryOfKeywordRepository.Update(categoryOfKeyword, createCategoryOfKeywordDTO);
+        }
+
+        private CategoryOfKeyword GetCategoryOfKeywordById(int id)
         {
             CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordRepository.GetOne(id);
             if (categoryOfKeyword is null)
             {
                 throw new NotFoundException("CategoryOfKeyword status not found");
             }
-            _categoryOfKeywordRepository.Update(categoryOfKeyword, createCategoryOfKeywordDTO);
+            return categoryOfKeyword;
         }
+
     }
 }

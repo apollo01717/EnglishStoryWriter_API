@@ -39,22 +39,24 @@ namespace EnglishStoryWriter_API.Services
 
         public CriterionDTO GetOne(int id)
         {
-            Criterion criterion = _criterionRepository.GetOne(id);
-            if(criterion is null)
-            {
-                throw new NotFoundException("Criterion not found");
-            }
+            Criterion criterion = GetCriterionById(id);
             return _mapper.Map<CriterionDTO>(criterion);
         }
 
         public void Update(CreateCriterionDTO createCriterionDTO, int id)
+        {
+            Criterion criterion = GetCriterionById(id);
+            _criterionRepository.Update(criterion, createCriterionDTO);
+        }
+
+        private Criterion GetCriterionById(int id)
         {
             Criterion criterion = _criterionRepository.GetOne(id);
             if (criterion is null)
             {
                 throw new NotFoundException("Criterion not found");
             }
-            _criterionRepository.Update(criterion, createCriterionDTO);
+            return criterion;
         }
     }
 }
