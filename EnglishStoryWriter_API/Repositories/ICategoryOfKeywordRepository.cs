@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Repositories
 {
-    public interface ICategoryOfKeywordRepository
+    public interface ICategoryOfKeywordRepository : IBaseRepository<CategoryOfKeyword, CreateCategoryOfKeywordDTO>
     {
-        public IList<CategoryOfKeyword> GetAll();
-        public CategoryOfKeyword GetOne(int id);
-        public CategoryOfKeyword Create(CategoryOfKeyword categoryOfKeyword);
-        public void Update(CategoryOfKeyword categoryOfKeyword, CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO);
-        public void Delete(CategoryOfKeyword categoryOfKeyword);
+   
     }
 }

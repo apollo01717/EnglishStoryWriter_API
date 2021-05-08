@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Repositories
 {
-    public interface IStoryStatusRepository
+    public interface IStoryStatusRepository : IBaseRepository<StoryStatus, CreateStoryStatusDTO>
     {
-        public IList<StoryStatus> GetAll();
-        public StoryStatus GetOne(int id);
-        public StoryStatus Create(StoryStatus storyStatus);
-        public void Update(StoryStatus storyStatus, CreateStoryStatusDTO statusDTO);
-        public void Delete(StoryStatus storyStatus);
+        
     }
 }

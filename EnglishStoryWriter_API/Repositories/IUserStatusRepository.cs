@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Repositories
 {
-    public interface ILevelRepository : IBaseRepository<Level, CreateLevelDTO>
+    public interface IUserStatusRepository : IBaseRepository<UserStatus, CreateUserStatusDTO>
     {
-        
+ 
     }
 }
