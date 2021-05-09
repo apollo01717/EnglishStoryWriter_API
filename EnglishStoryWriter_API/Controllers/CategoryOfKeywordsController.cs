@@ -9,48 +9,11 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class CategoryOfKeywordsController : ControllerBase
+ 
+    public class CategoryOfKeywordsController : PrimaryController<CategoryOfKeyword, CategoryOfKeywordDTO, CreateCategoryOfKeywordDTO>
     {
-        private readonly ICategoryOfKeywordService _categoryOfKeywordService;
-        public CategoryOfKeywordsController(ICategoryOfKeywordService categoryOfKeywordService)
+        public CategoryOfKeywordsController(ICategoryOfKeywordService categoryOfKeywordService) : base(categoryOfKeywordService) 
         {
-            _categoryOfKeywordService = categoryOfKeywordService;
-        }
-        [HttpGet]
-        public ActionResult<IEnumerable<CategoryOfKeywordDTO>> GetAll()
-        {
-            var categoryOfKeywords = _categoryOfKeywordService.GetAll();
-            return Ok(categoryOfKeywords);
-        }
-
-        [HttpGet("{id}")]
-        public ActionResult<CategoryOfKeywordDTO> Get(int id)
-        {
-            CategoryOfKeywordDTO categoryOfKeyword = _categoryOfKeywordService.GetOne(id);
-            return Ok(categoryOfKeyword);
-        }
-
-        [HttpPost]
-        public ActionResult Create([FromBody] CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO)
-        {
-            CategoryOfKeyword categoryOfKeyword = _categoryOfKeywordService.Create(createCategoryOfKeywordDTO);
-            return Created($"/api/categoryofkeyword/{categoryOfKeyword.Id}", null);
-        }
-
-        [HttpPut("{id}")]
-        public ActionResult Update([FromBody] CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO, int id)
-        {
-            _categoryOfKeywordService.Update(createCategoryOfKeywordDTO, id);
-            return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        public ActionResult Delete([FromRoute] int id)
-        {
-            _categoryOfKeywordService.Delete(id);
-            return NoContent();
         }
     }
 }

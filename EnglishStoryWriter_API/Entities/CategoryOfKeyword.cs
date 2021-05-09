@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Entities
 {
-    public class CategoryOfKeyword
+    public class CategoryOfKeyword : BaseEntity
     {
         public int Id { set; get; }
         public string Name { get; set; }

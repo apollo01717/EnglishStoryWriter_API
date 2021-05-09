@@ -27,7 +27,7 @@ namespace EnglishStoryWriter_API.Services
 
         public void Delete(int id)
         {
-            T element = _baseRepository.GetOne(id);
+            T element = GetOneElement(id);
             _baseRepository.Delete(element);
         }
 

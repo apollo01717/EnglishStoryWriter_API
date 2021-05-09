@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Entities
 {
-    public class UserStatus : BaseEntity
+    public interface BaseEntity
     {
-        public int Id { set; get; }
-        public string Name { get; set; }
+        public int Id { get; set; }
     }
 }
