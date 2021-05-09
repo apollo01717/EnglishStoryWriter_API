@@ -9,6 +9,6 @@ namespace EnglishStoryWriter_API.Repositories
 {
     public interface ICategoryOfKeywordRepository : IBaseRepository<CategoryOfKeyword, CreateCategoryOfKeywordDTO>
     {
-   
+    
     }
 }

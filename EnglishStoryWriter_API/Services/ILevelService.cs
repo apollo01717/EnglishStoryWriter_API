@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Services
 {
-    public interface ILevelService
+    public interface ILevelService : IBaseService<Level, LevelDTO, CreateLevelDTO>
     {
-        public IEnumerable<LevelDTO> GetAll();
-        public LevelDTO GetOne(int id);
-        public Level Create(CreateLevelDTO levelDTO);
-        public void Update(CreateLevelDTO createLevelDTO, int id);
-        public void Delete(int id);
+   
     }
 }

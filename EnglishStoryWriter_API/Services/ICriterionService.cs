@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Services
 {
-    public interface ICriterionService
+    public interface ICriterionService : IBaseService<Criterion, CriterionDTO, CreateCriterionDTO>
     {
-        public IEnumerable<CriterionDTO> GetAll();
-        public CriterionDTO GetOne(int id);
-        public Criterion Create(CreateCriterionDTO createCriterionDTO);
-        public void Update(CreateCriterionDTO createCriterionDTO, int id);
-        public void Delete(int id);
+
     }
 }

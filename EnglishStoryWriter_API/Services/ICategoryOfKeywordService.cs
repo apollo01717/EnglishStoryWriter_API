@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Services
 {
-    public interface ICategoryOfKeywordService
+    public interface ICategoryOfKeywordService : IBaseService<CategoryOfKeyword, CategoryOfKeywordDTO, CreateCategoryOfKeywordDTO>
     {
-        public IEnumerable<CategoryOfKeywordDTO> GetAll();
-        public CategoryOfKeywordDTO GetOne(int id);
-        public CategoryOfKeyword Create(CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO);
-        public void Update(CreateCategoryOfKeywordDTO createCategoryOfKeywordDTO, int id);
-        public void Delete(int id);
+        
     }
 }

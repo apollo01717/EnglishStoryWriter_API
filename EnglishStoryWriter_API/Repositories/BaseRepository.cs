@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Repositories
 {
-    public abstract class BaseRepository<T, Dto> : IBaseRepository<T, Dto> where T : class
+    public abstract class BaseRepository<T, CreateDto> : IBaseRepository<T, CreateDto> where T : class
     {
         protected readonly EnglishDbContext _englishDbContext;
         public BaseRepository(EnglishDbContext englishDbContext)
@@ -36,13 +36,7 @@ namespace EnglishStoryWriter_API.Repositories
             return _englishDbContext.Set<T>().Find(id);
         }
 
-        //public void Update(TEntity element, Dto dto)
-        //{
-        //    element.Name = dto.Name;
-        //    _englishDbContext.SaveChanges();
-
-        //}
-        public void Update(T element, Dto dto)
+        public void Update(T element, CreateDto dto)
         {
             throw new NotImplementedException();
         }
