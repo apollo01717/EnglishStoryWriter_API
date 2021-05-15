@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Controllers
 {
-    public class LevelController : PrimaryController<Level, LevelDTO, CreateLevelDTO>
+    public class RoleController : PrimaryController<Role, RoleDTO, CreateRoleDTO>
     {
-        public LevelController(ILevelService levelService) : base(levelService) 
+        public RoleController(IRoleService roleService) : base(roleService)
         {
-        }  
+        }
     }
 }

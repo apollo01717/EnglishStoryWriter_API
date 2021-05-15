@@ -3,14 +3,16 @@ using EnglishStoryWriter_API.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EnglishStoryWriter_API.Migrations
 {
     [DbContext(typeof(EnglishDbContext))]
-    partial class EnglishDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210515182213_create_UserStatus_and_Role")]
+    partial class create_UserStatus_and_Role
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using EnglishStoryWriter_API.DTO;
 using EnglishStoryWriter_API.Entities;
-using EnglishStoryWriter_API.Exceptions;
 using EnglishStoryWriter_API.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace EnglishStoryWriter_API.Services
 {
-    public class LevelService : BaseService<Level, LevelDTO, CreateLevelDTO>, ILevelService
+    public class UserStatusService : BaseService<UserStatus,UserStatusDTO, CreateUserStatusDTO>,IUserStatusService
     {
-        public LevelService(ILevelRepository levelRepository, IMapper mapper) : base (levelRepository, mapper)
+        public UserStatusService(IUserStatusRepository userStatusRepository, IMapper mapper)
+            : base (userStatusRepository, mapper) 
         {
 
         }

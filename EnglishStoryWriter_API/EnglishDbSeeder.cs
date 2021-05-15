@@ -42,8 +42,19 @@ namespace EnglishStoryWriter_API
                     var levels = GetLevels();
                     _dbContext.AddRange(levels);
                     _dbContext.SaveChanges();
+                } 
+                if (!_dbContext.Role.Any())
+                {
+                    var roles = GetRoles();
+                    _dbContext.AddRange(roles);
+                    _dbContext.SaveChanges();
+                }  
+                if (!_dbContext.UserStatus.Any())
+                {
+                    var statuses = GetUserStatus();
+                    _dbContext.AddRange(statuses);
+                    _dbContext.SaveChanges();
                 }
-                
             }
         }
 
@@ -147,6 +158,39 @@ namespace EnglishStoryWriter_API
               }
             };
             return levels;
+        }
+
+        private IEnumerable<Role> GetRoles()
+        {
+            var roles = new List<Role>()
+            {
+              new Role()
+              {
+                Name = "Admin"
+
+              },
+              new Role()
+              {
+                  Name = "User"
+              }
+            };
+            return roles;
+        }
+        private IEnumerable<UserStatus> GetUserStatus()
+        {
+            var statuses = new List<UserStatus>()
+            {
+              new UserStatus()
+              {
+                Name = "Active"
+
+              },
+              new UserStatus()
+              {
+                  Name = "Inactive"
+              }
+            };
+            return statuses;
         }
     } 
 }

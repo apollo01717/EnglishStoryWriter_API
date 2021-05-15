@@ -21,6 +21,7 @@ namespace EnglishStoryWriter_API.Entities
         public DbSet<Criterion> Criterion{ get; set; }
         public DbSet<Level> Level { get; set; }
         public DbSet<UserStatus> UserStatus { get; set; }
+        public DbSet<Role> Role { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +41,11 @@ namespace EnglishStoryWriter_API.Entities
                 .HasMaxLength(25);
 
             modelBuilder.Entity<Level>()
+                .Property(l => l.Name)
+                .IsRequired()
+                .HasMaxLength(25);
+            
+            modelBuilder.Entity<Role>()
                 .Property(l => l.Name)
                 .IsRequired()
                 .HasMaxLength(25);

@@ -11,11 +11,8 @@ namespace EnglishStoryWriter_API.Controllers
 {
     public class CriterionController : PrimaryController<Criterion, CriterionDTO, CreateCriterionDTO>
     {
-
         public CriterionController(ICriterionService criterionService) : base(criterionService)
         {
         }
-
-      
     }
 }

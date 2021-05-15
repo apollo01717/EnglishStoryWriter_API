@@ -32,6 +32,15 @@ namespace EnglishStoryWriter_API
             CreateMap<CreateLevelDTO, Level>();
             CreateMap<Level, CreateLevelDTO>();
 
+            CreateMap<Role, RoleDTO>();
+            CreateMap<RoleDTO, Role>();
+            CreateMap<CreateRoleDTO, Role>();
+            CreateMap<Role, CreateRoleDTO>();
+
+            CreateMap<UserStatus, UserStatusDTO>();
+            CreateMap<UserStatusDTO, UserStatus>();
+            CreateMap<CreateUserStatusDTO, UserStatus>();
+            CreateMap<UserStatus, CreateUserStatusDTO>();
         }
     }
 }
