@@ -22,6 +22,7 @@ namespace EnglishStoryWriter_API.Entities
         public DbSet<Level> Level { get; set; }
         public DbSet<UserStatus> UserStatus { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -49,6 +50,27 @@ namespace EnglishStoryWriter_API.Entities
                 .Property(l => l.Name)
                 .IsRequired()
                 .HasMaxLength(25);
+
+            modelBuilder.Entity<User>()
+                .Property(u => u.Name)
+                .IsRequired()
+                .HasMaxLength(25);
+            modelBuilder.Entity<User>()
+                .Property(u => u.Email)
+                .IsRequired()
+                .HasMaxLength(25);
+            modelBuilder.Entity<User>()
+                .Property(u => u.Password)
+                .IsRequired();
+            modelBuilder.Entity<User>()
+                .Property(u => u.RoleId)
+                .IsRequired();
+            modelBuilder.Entity<User>()
+                .Property(u => u.UserStatusId)
+                .IsRequired();
+
+                
+                
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
