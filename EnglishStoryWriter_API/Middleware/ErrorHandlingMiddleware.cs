@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EnglishStoryWriter_API.Exceptions;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,12 @@ namespace EnglishStoryWriter_API.Middleware
             {
                 await next.Invoke(context);
             }
-            catch (Exceptions.NotFoundException exception)
+            catch(BadRequestException badRequestException)
+            {
+                context.Response.StatusCode = 404;
+                await context.Response.WriteAsync(badRequestException.Message);
+            }
+            catch (NotFoundException exception)
             {
                 context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(exception.Message);
