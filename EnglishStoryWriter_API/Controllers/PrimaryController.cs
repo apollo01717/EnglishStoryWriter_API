@@ -1,5 +1,6 @@
 ﻿using EnglishStoryWriter_API.Entities;
 using EnglishStoryWriter_API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace EnglishStoryWriter_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public abstract class PrimaryController<T, Dto, CreateDto> : ControllerBase where T : BaseEntity
     {
         protected readonly IBaseService<T, Dto, CreateDto> _service;
@@ -34,6 +36,7 @@ namespace EnglishStoryWriter_API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create([FromBody] CreateDto createDto)
         {
             T element = _service.Create(createDto);
@@ -41,6 +44,7 @@ namespace EnglishStoryWriter_API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Update([FromBody] CreateDto createDto, [FromRoute] int id)
         {
             _service.Update(createDto, id);
@@ -48,6 +52,7 @@ namespace EnglishStoryWriter_API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete([FromRoute] int id)
         {
             _service.Delete(id);
